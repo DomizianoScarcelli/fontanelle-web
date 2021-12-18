@@ -1,0 +1,17 @@
+.sidebarContainer {
+	width: 15vw;
+	background-color: white;
+	height: 100vh;
+	border-radius: 0 15px 0 0;
+}
+
+.searchBoxContainer {
+	padding: 10px;
+}
+
+.searchBox {
+	width: 80%;
+	height: 40px;
+	border-radius: 8px;
+	background-color: violet;
+}
