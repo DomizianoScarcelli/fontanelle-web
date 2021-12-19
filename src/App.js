@@ -1,11 +1,13 @@
 import "./App.css";
+import MapContainer from "./mapContainer/MapContainer";
 import Sidebar from "./sidebar/Sidebar.js";
 
 function App() {
 	return (
-		<body>
+		<div className="mainContainer">
 			<Sidebar></Sidebar>
-		</body>
+			<MapContainer></MapContainer>
+		</div>
 	);
 }
 

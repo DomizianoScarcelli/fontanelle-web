@@ -6,9 +6,9 @@ import { FountainItem } from "./FountainItem";
 
 const Sidebar = () => {
 	return (
-		<div class="sidebarContainer">
+		<div className="sidebarContainer">
 			<SearchBox></SearchBox>
-			<div class="nearbyFountainsLabel">Fontanelle vicino a te</div>
+			<div className="nearbyFountainsLabel">Fontanelle vicino a te</div>
 			<FountainItem></FountainItem>
 		</div>
 	);
