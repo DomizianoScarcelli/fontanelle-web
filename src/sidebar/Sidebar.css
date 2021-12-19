@@ -7,11 +7,29 @@
 
 .searchBoxContainer {
 	padding: 10px;
+	display: flex;
+	justify-content: center;
 }
 
 .searchBox {
-	width: 80%;
+	text-indent: 5px;
+	align-items: center;
+	justify-content: center;
+	width: 13vw;
 	height: 40px;
 	border-radius: 8px;
-	background-color: violet;
+	background-color: #f6f6f6;
+	border: solid 1px #dedede;
 }
+
+.nearbyFountainsLabel {
+	padding: 5px 0 0 10px;
+	font-weight: bold;
+	color: #707070;
+}
+
+/* .searchIconBox {
+	align-self: flex-end;
+	width: min-content;
+	height: min-content;
+} */
