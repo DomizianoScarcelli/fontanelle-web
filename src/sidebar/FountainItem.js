@@ -1,12 +1,12 @@
-import "./FountainItem.css";
+import "./Fountain.css";
 import FountainLogo from "../res/place_black_24dp.svg";
 
-export const FountainItem = () => {
+export const FountainItem = (props) => {
 	return (
-		<div className="fountainContainer">
+		<div className="itemContainer">
 			<img src={FountainLogo} class="fountainLogo" alt="fountain-logo" />
 			<div className="fountainInfoContainer">
-				<div className="fountainAddress">Via di casal selce, 294</div>
+				<div className="fountainAddress">{props.address}</div>
 				<div className="fountainDistance">3,4km</div>
 			</div>
 		</div>
