@@ -20,7 +20,8 @@ const FountainContainer = (props) => {
 	return (
 		<div className="fountainContainer">
 			{fountainList.map((data) => {
-				return <FountainItem address={data.ID} key={data.ID} />;
+				console.log(data);
+				return <FountainItem position={{ lat: data.Latitude, lng: data.Longitude }} key={data.ID} />;
 			})}
 		</div>
 	);
