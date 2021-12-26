@@ -7,6 +7,10 @@ export const FountainItem = (props) => {
 	Geocode.setApiKey("AIzaSyBbTz28oqCBEbXq9Y5oviGyjaL1FXTYs7s");
 	const [address, setAddress] = useState("");
 
+	useEffect(() => {
+		setAddressFromCoordinates(props.position);
+	}, [props.position, address]);
+
 	const setAddressFromCoordinates = async (location) => {
 		//TODO parse the address to be readable
 		const res = await Geocode.fromLatLng(location.lat.toString(), location.lng.toString());
@@ -16,12 +20,8 @@ export const FountainItem = (props) => {
 		setAddress(addressName + ", " + addressNumber);
 	};
 
-	useEffect(() => {
-		setAddressFromCoordinates(props.position);
-	}, [props.position, address]);
-
 	return (
-		<div className="itemContainer">
+		<div className="itemContainer" onClick={props.onClick}>
 			<img src={FountainLogo} className="fountainLogo" alt="fountain-logo" />
 			<div className="fountainInfoContainer">
 				<div className="fountainAddress">{address}</div>

@@ -28,23 +28,21 @@ function App() {
 
 	useEffect(() => {
 		setLoading(true);
-		navigator.geolocation.getCurrentPosition((pos) => {
+		navigator.geolocation.getCurrentPosition(async (pos) => {
 			const { latitude, longitude } = pos.coords;
 			setLocation({ lat: latitude, lng: longitude });
 
-			fetch(`https://fontanelle-api.test.sapienzaapps.it/fountains/?latitude=${latitude}&longitude=${longitude}&radius=100`)
-				.then((response) => response.json())
-				.then((data) => {
-					data.forEach((fountain) => {
-						const fountainDistance = Math.round(getDistanceBetweenCoordinates(fountain.Latitude, fountain.Longitude, latitude, longitude) * 100) / 100;
-						setFountainList((fountainList) => [...fountainList, { Latitude: fountain.Latitude, Longitude: fountain.Longitude, ID: fountain.ID, distance: fountainDistance }]);
-					});
+			const response = await fetch(`https://fontanelle-api.test.sapienzaapps.it/fountains/?latitude=${latitude}&longitude=${longitude}&radius=100`);
+			const data = await response.json();
+			data.forEach((fountain) => {
+				const fountainDistance = Math.round(getDistanceBetweenCoordinates(fountain.Latitude, fountain.Longitude, latitude, longitude) * 100) / 100;
+				setFountainList((fountainList) => [...fountainList, { Latitude: fountain.Latitude, Longitude: fountain.Longitude, ID: fountain.ID, distance: fountainDistance }]);
+			});
 
-					data.forEach((fountain) => {
-						setMarkers((markers) => [...markers, { position: { lat: fountain.Latitude, lng: fountain.Longitude }, id: fountain.ID }]);
-					});
-					setLoading(false);
-				});
+			data.forEach((fountain) => {
+				setMarkers((markers) => [...markers, { position: { lat: fountain.Latitude, lng: fountain.Longitude }, id: fountain.ID }]);
+			});
+			setLoading(false);
 		});
 	}, []);
 
