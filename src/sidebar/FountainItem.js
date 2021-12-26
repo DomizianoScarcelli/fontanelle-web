@@ -25,7 +25,7 @@ export const FountainItem = (props) => {
 			<img src={FountainLogo} className="fountainLogo" alt="fountain-logo" />
 			<div className="fountainInfoContainer">
 				<div className="fountainAddress">{address}</div>
-				<div className="fountainDistance">3,4km</div>
+				<div className="fountainDistance">{props.distance} km</div>
 			</div>
 		</div>
 	);
