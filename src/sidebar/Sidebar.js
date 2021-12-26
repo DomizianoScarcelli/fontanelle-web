@@ -9,7 +9,7 @@ const Sidebar = (props) => {
 		<div className="sidebarContainer">
 			<SearchBox></SearchBox>
 			<div className="nearbyFountainsLabel">Fontanelle vicino a te</div>
-			<FountainContainer location={props.location} />
+			<FountainContainer location={props.location} fountainList={props.fountainList} />
 		</div>
 	);
 };

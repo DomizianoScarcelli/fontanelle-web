@@ -1,5 +1,5 @@
 import React from "react";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import { useState, useCallback, useEffect } from "react";
 const containerStyle = {
 	width: "100vw",
@@ -37,10 +37,14 @@ const MapContainer = (props) => {
 	}, []);
 
 	if (!isLoaded) return <div>Errore di caricamento</div>;
-	console.log("location", props.location);
+	// console.log("location", props.location);
 	return (
 		<GoogleMap mapContainerStyle={containerStyle} center={center} zoom={zoom} onLoad={onLoad} onUnmount={onUnmount}>
 			{/* Child components, such as markers, info windows, etc. */}
+			{props.markers.map((marker) => {
+				// console.log("Posizione marker", marker.position);
+				return <Marker position={marker.position} key={marker.id}></Marker>;
+			})}
 			<></>
 		</GoogleMap>
 	);

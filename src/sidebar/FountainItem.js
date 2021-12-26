@@ -11,7 +11,6 @@ export const FountainItem = (props) => {
 		//TODO parse the address to be readable
 		const res = await Geocode.fromLatLng(location.lat.toString(), location.lng.toString());
 		const addressComponents = await res.results[0].address_components;
-		console.log(res);
 		const addressName = addressComponents[1].short_name;
 		const addressNumber = addressComponents[0].short_name;
 		setAddress(addressName + ", " + addressNumber);
@@ -23,7 +22,7 @@ export const FountainItem = (props) => {
 
 	return (
 		<div className="itemContainer">
-			<img src={FountainLogo} class="fountainLogo" alt="fountain-logo" />
+			<img src={FountainLogo} className="fountainLogo" alt="fountain-logo" />
 			<div className="fountainInfoContainer">
 				<div className="fountainAddress">{address}</div>
 				<div className="fountainDistance">3,4km</div>
