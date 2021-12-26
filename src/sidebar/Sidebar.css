@@ -1,5 +1,7 @@
 .sidebarContainer {
 	width: 15vw;
+	margin: 0.5rem;
+	min-width: fit-content;
 	background-color: white;
 	height: 100vh;
 	border-radius: 0 15px 0 0;

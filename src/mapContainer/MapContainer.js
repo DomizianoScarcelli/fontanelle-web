@@ -1,6 +1,7 @@
 import React from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import { useState, useCallback, useEffect } from "react";
+
 const containerStyle = {
 	width: "100vw",
 	height: "100vh",
@@ -43,9 +44,18 @@ const MapContainer = (props) => {
 			{/* Child components, such as markers, info windows, etc. */}
 			{props.markers.map((marker) => {
 				// console.log("Posizione marker", marker.position);
-				return <Marker position={marker.position} key={marker.id}></Marker>;
+				return (
+					<Marker
+						position={marker.position}
+						key={marker.id}
+						// icon={{
+						// 	url: "../res/pin.png",
+						// 	scaledSize: new window.google.maps.Size(50, 50),
+						// }}
+					></Marker>
+				);
 			})}
-			<></>
+			<Marker position={props.location}></Marker>
 		</GoogleMap>
 	);
 };
