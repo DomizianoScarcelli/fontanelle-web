@@ -1,23 +1,18 @@
 import "./Fountain.css";
 import FountainLogo from "../res/place_black_24dp.svg";
-import Geocode from "react-geocode";
 import { useEffect, useState } from "react";
+import { setAddressFromCoordinates } from "../utils/LocationUtils";
 
 export const FountainItem = (props) => {
-	Geocode.setApiKey("AIzaSyBbTz28oqCBEbXq9Y5oviGyjaL1FXTYs7s");
 	const [address, setAddress] = useState("");
 
 	useEffect(() => {
-		setAddressFromCoordinates(props.position);
+		changeAddress(props.position);
 	}, [props.position, address]);
 
-	const setAddressFromCoordinates = async (location) => {
-		//TODO parse the address to be readable
-		const res = await Geocode.fromLatLng(location.lat.toString(), location.lng.toString());
-		const addressComponents = await res.results[0].address_components;
-		const addressName = addressComponents[1].short_name;
-		const addressNumber = addressComponents[0].short_name;
-		setAddress(addressName + ", " + addressNumber);
+	const changeAddress = async (position) => {
+		const address = await setAddressFromCoordinates(position);
+		setAddress(address);
 	};
 
 	return (

@@ -6,8 +6,12 @@ import FountainDetails from "./FountainDetails";
 const FountainContainer = (props) => {
 	const [details, setDetails] = useState(null);
 
-	if (details == null) {
-		return (
+	let detailsHtml = "";
+	if (details != null) detailsHtml = <FountainDetails fountain={details}></FountainDetails>;
+
+	return (
+		<div className="outerFountainContainer">
+			{detailsHtml}
 			<div className="fountainContainer">
 				{props.fountainList.map((data) => {
 					return (
@@ -21,9 +25,10 @@ const FountainContainer = (props) => {
 						/>
 					);
 				})}
+				<div className="circleIcon addFountain bottomIcon"></div>
 			</div>
-		);
-	} else return <FountainDetails fountain={details}></FountainDetails>;
+		</div>
+	);
 };
 
 export default FountainContainer;
