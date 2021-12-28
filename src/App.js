@@ -1,6 +1,6 @@
-import "./App.css";
-import MapContainer from "./mapContainer/MapContainer";
-import Sidebar from "./sidebar/Sidebar.js";
+import "./css/App.css";
+import MapContainer from "./components/MapContainer";
+import Sidebar from "./components/Sidebar.js";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -47,9 +47,7 @@ function App() {
 	}, []);
 
 	if (isLoading) return <div>Caricamento in corso</div>;
-	// console.log("La posizione corrente: ", location);
-	console.log("Lista fontane:", fountainList);
-	console.log("I markers", markers);
+
 	return (
 		<div className="mainContainer">
 			<Sidebar location={location} fountainList={fountainList}></Sidebar>

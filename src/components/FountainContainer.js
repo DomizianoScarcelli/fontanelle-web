@@ -1,4 +1,4 @@
-import "./Fountain.css";
+import "../css/Fountain.css";
 import { FountainItem } from "./FountainItem";
 import { useState } from "react";
 import FountainDetails from "./FountainDetails";

@@ -1,13 +1,13 @@
-import "./Sidebar.css";
-import "./SearchBox.js";
+import "../css/Sidebar.css";
 import React from "react";
-import SearchBox from "./SearchBox.js";
 import FountainContainer from "./FountainContainer";
 
 const Sidebar = (props) => {
 	return (
 		<div className="sidebarContainer">
-			<SearchBox></SearchBox>
+			<div className="searchBoxContainer">
+				<input className="searchBox" placeholder="Cerca..." />
+			</div>
 			<div className="nearbyFountainsLabel">Fontanelle vicino a te</div>
 			<FountainContainer location={props.location} fountainList={props.fountainList} />
 		</div>
