@@ -25,7 +25,6 @@ const FountainContainer = (props) => {
 						/>
 					);
 				})}
-				<div className="circleIcon addFountain bottomIcon"></div>
 			</div>
 		</div>
 	);
