@@ -2,17 +2,17 @@ import "../css/Sidebar.css";
 import React from "react";
 import FountainsContainer from "./FountainsContainer";
 import { useState, useRef } from "react";
-import CloseIcon from "../res/close_black_24dp.svg";
+
 const Sidebar = (props) => {
 	const [isPopUp, setPopUp] = useState(false);
 
-	const popUp = useRef(null);
 	const searchBar = useRef(null);
 
 	const showPopUpAddFountain = () => {
 		if (isPopUp) {
 			//The fountain has been added
 			setPopUp(false);
+			//TODO add a popup to let the user know the fountain has been added
 		} else {
 			//The button to add a fountain has been pressed
 			setPopUp(true);
@@ -29,7 +29,11 @@ const Sidebar = (props) => {
 			<div className="nearbyFountainsLabel">Fontanelle vicino a te</div>
 			<FountainsContainer location={props.location} fountainList={props.fountainList} />
 			{/* Add fountain button */}
-			<div className={isPopUp ? "circleIcon extendedIcon doneIcon" : "circleIcon addIcon"} onClick={showPopUpAddFountain}></div>
+			<div className={isPopUp ? "circleIcon extendedIcon doneIcon" : "circleIcon addIcon"} onClick={showPopUpAddFountain}>
+				<p className="addFountainText" style={{ opacity: isPopUp ? "1" : "0" }}>
+					AGGIUNGI FONTANELLA
+				</p>
+			</div>
 		</div>
 	);
 };

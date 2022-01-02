@@ -7,7 +7,15 @@ const FountainContainer = (props) => {
 	const [details, setDetails] = useState(null);
 
 	let detailsHtml = "";
-	if (details != null) detailsHtml = <FountainDetails fountain={details}></FountainDetails>;
+	if (details != null)
+		detailsHtml = (
+			<FountainDetails
+				fountain={details}
+				onClose={() => {
+					setDetails(null);
+				}}
+			></FountainDetails>
+		);
 
 	return (
 		<div className="outerFountainContainer">

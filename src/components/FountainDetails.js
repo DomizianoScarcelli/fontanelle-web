@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { setAddressFromCoordinates } from "../utils/LocationUtils";
+import CloseIcon from "../res/close_black_24dp.svg";
 import "../css/FountainDetails.css";
 
 const FountainDetails = (props) => {
@@ -16,7 +17,10 @@ const FountainDetails = (props) => {
 
 	return (
 		<div className="detailsContainer verticalFlex">
-			<div className="address">{address}</div>
+			<div className="horizontalFlex topContainer">
+				<div className="address">{address}</div>
+				<img className="closeIcon" src={CloseIcon} alt="close" onClick={props.onClose}></img>
+			</div>
 			<div className="horizontalFlex">
 				<div className="circleIcon directionsIcon"></div>
 				<div className="circleIcon saveIcon"></div>

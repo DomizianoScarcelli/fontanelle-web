@@ -41,7 +41,16 @@
 }
 
 .extendedIcon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 100%;
 	border-radius: 100rem;
 	background-position: 10px;
+}
+
+.addFountainText {
+	font-size: 14px;
+	font-weight: bold;
+	animation: expandFountainText 500ms;
 }

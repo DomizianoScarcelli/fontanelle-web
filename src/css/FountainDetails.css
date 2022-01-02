@@ -21,3 +21,13 @@
 .secondary {
 	background-color: #ff7070;
 }
+
+.closeIcon {
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.topContainer {
+	justify-content: space-between;
+}
