@@ -32,32 +32,16 @@
 	color: #707070;
 }
 
-.container {
-	display: flex;
-	flex-direction: column;
-	transition: opacity 200ms;
-	border-radius: 1rem;
-	background-color: rgb(202, 202, 202);
-	margin-bottom: 1rem;
+.doneIcon {
+	background-image: url(../res/done_white_24dp.svg);
 }
 
-input {
-	width: 90%;
-	margin: 0.5rem;
-	border: none;
-	border-radius: 1rem;
-	height: 1.5rem;
-	padding-left: 10px;
+.addIcon {
+	background-image: url(../res/add_white_24dp.svg);
 }
 
-input:focus {
-	outline: none;
-}
-
-.closeIcon {
-	align-self: flex-end;
-	cursor: pointer;
-	padding: 0.5rem 0.5rem 0 0.5rem;
-	height: 24px;
-	width: 24px;
+.extendedIcon {
+	width: 100%;
+	border-radius: 100rem;
+	background-position: 10px;
 }

@@ -7,12 +7,16 @@ const Sidebar = (props) => {
 	const [isPopUp, setPopUp] = useState(false);
 
 	const popUp = useRef(null);
+	const searchBar = useRef(null);
 
 	const showPopUpAddFountain = () => {
 		if (isPopUp) {
+			//The fountain has been added
 			setPopUp(false);
 		} else {
+			//The button to add a fountain has been pressed
 			setPopUp(true);
+			searchBar.current.focus();
 		}
 	};
 
@@ -20,16 +24,12 @@ const Sidebar = (props) => {
 		<div className="sidebarContainer">
 			{/* Searchbar */}
 			<div className="searchBoxContainer">
-				<input className="searchBox" placeholder="Cerca..." />
+				<input className="searchBox" ref={searchBar} placeholder="Cerca..." />
 			</div>
 			<div className="nearbyFountainsLabel">Fontanelle vicino a te</div>
 			<FountainsContainer location={props.location} fountainList={props.fountainList} />
-			{/* Add fountain button and pop up  */}
-			<div className="container" style={{ opacity: isPopUp ? 1 : 0 }}>
-				<img className="closeIcon" src={CloseIcon} alt="close icon"></img>
-				<input ref={popUp} className="address" name="address" placeholder="Viale Trastevere, 10"></input>
-			</div>
-			<div className="circleIcon addFountain" onClick={showPopUpAddFountain}></div>
+			{/* Add fountain button */}
+			<div className={isPopUp ? "circleIcon extendedIcon doneIcon" : "circleIcon addIcon"} onClick={showPopUpAddFountain}></div>
 		</div>
 	);
 };

@@ -11,10 +11,6 @@
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.425);
 }
 
-.addFountain {
-	background-image: url(../res/add_white_24dp.svg);
-}
-
 .flagIcon {
 	background-image: url(../res/outlined_flag_white_24dp.svg);
 }
