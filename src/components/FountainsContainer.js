@@ -19,18 +19,23 @@ const FountainContainer = (props) => {
 
 	return (
 		<div className="outerFountainContainer">
-			{detailsHtml}
 			<div className="fountainContainer">
 				{props.fountainList.map((data) => {
 					return (
-						<FountainItem
-							onClick={() => {
-								setDetails(data);
-							}}
-							position={{ lat: data.Latitude, lng: data.Longitude }}
-							key={data.ID}
-							distance={data.distance}
-						/>
+						<div>
+							{data === details ? (
+								detailsHtml
+							) : (
+								<FountainItem
+									onClick={() => {
+										setDetails(data);
+									}}
+									position={{ lat: data.Latitude, lng: data.Longitude }}
+									key={data.ID}
+									distance={data.distance}
+								/>
+							)}
+						</div>
 					);
 				})}
 			</div>
