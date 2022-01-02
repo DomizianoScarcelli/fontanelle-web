@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { setAddressFromCoordinates } from "../utils/LocationUtils";
+import "../css/FountainDetails.css";
 
 const FountainDetails = (props) => {
 	const [address, setAddress] = useState("");

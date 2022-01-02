@@ -1,0 +1,23 @@
+.detailsContainer {
+	padding: 0.5rem 1rem 0.5rem 1rem;
+	height: 7rem;
+	background-color: #f6f6f6;
+	border-radius: 1rem;
+}
+
+.address {
+	color: #707070;
+	font-weight: bold;
+}
+
+.directionsIcon {
+	background-image: url(../res/directions_white_24dp.svg);
+}
+
+.saveIcon {
+	background-image: url(../res/favorite_border_white_24dp.svg);
+}
+
+.secondary {
+	background-color: #ff7070;
+}

@@ -1,7 +1,7 @@
-import "../css/Fountain.css";
 import FountainLogo from "../res/place_black_24dp.svg";
 import { useEffect, useState } from "react";
 import { setAddressFromCoordinates } from "../utils/LocationUtils";
+import "../css/FountainItem.css";
 
 export const FountainItem = (props) => {
 	const [address, setAddress] = useState("");

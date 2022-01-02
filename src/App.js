@@ -1,4 +1,5 @@
 import "./css/App.css";
+import "./css/Shared.css";
 import MapContainer from "./components/MapContainer";
 import Sidebar from "./components/Sidebar.js";
 import { useEffect, useState } from "react";
