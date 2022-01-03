@@ -19,6 +19,7 @@ const Sidebar = (props) => {
 		if (isPopUp) {
 			//The fountain has been added
 			setPopUp(false);
+			searchBar.current.blur();
 			//TODO add a popup to let the user know the fountain has been added
 		} else {
 			//The button to add a fountain has been pressed
