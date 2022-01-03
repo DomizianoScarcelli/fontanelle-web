@@ -3,9 +3,9 @@
 	flex-direction: column;
 	width: 15vw;
 	margin: 0.5rem;
-	min-width: fit-content;
+	min-width: 300px;
 	background-color: white;
-	height: calc(100vh-0.5rem);
+	height: fit-content;
 	border-radius: 0 15px 0 0;
 }
 
@@ -20,6 +20,7 @@
 	align-items: center;
 	justify-content: center;
 	width: 13vw;
+	min-width: 280px;
 	height: 40px;
 	border-radius: 8px;
 	background-color: #f6f6f6;
@@ -40,11 +41,17 @@
 	background-image: url(../res/add_white_24dp.svg);
 }
 
+.bottomIcon {
+	position: absolute;
+	bottom: 1rem;
+	left: 1rem;
+}
+
 .extendedIcon {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 100%;
+	width: 280px;
 	border-radius: 100rem;
 	background-position: 10px;
 }
