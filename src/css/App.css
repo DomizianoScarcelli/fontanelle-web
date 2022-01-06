@@ -1,4 +1,7 @@
+body {
+	user-select: none;
+}
+
 .mainContainer {
 	display: flex;
-	flex-direction: row;
 }

@@ -1,0 +1,42 @@
+.sidebarContainer {
+	display: flex;
+	width: 15vw;
+	margin: 0.5rem;
+	min-width: 300px;
+	background-color: white;
+	height: fit-content;
+	border-radius: 0 15px 0 0;
+}
+
+.searchBoxContainer {
+	padding: 10px;
+}
+
+.doneIcon {
+	background-image: url(../res/done_white_24dp.svg);
+}
+
+.addIcon {
+	background-image: url(../res/add_white_24dp.svg);
+}
+
+.bottomIcon {
+	position: absolute;
+	bottom: 1rem;
+	left: 1rem;
+}
+
+.extendedIcon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 280px;
+	border-radius: 100rem;
+	background-position: 10px;
+}
+
+.addFountainText {
+	font-size: 14px;
+	font-weight: bold;
+	animation: expandFountainText 500ms;
+}
