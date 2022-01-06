@@ -1,6 +1,5 @@
 .sidebarContainer {
 	display: flex;
-	flex-direction: column;
 	width: 15vw;
 	margin: 0.5rem;
 	min-width: 300px;
@@ -11,8 +10,6 @@
 
 .searchBoxContainer {
 	padding: 10px;
-	display: flex;
-	justify-content: center;
 }
 
 .doneIcon {

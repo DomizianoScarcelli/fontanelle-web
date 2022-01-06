@@ -46,7 +46,7 @@ const Sidebar = (props) => {
 				Else -> FountainsNearby
 			*/}
 
-			{searchFocus === true ? (
+			{searchFocus ? (
 				<div>
 					{/* Searchbar */}
 					<div className="searchBoxContainer">
@@ -66,7 +66,7 @@ const Sidebar = (props) => {
 					</div>
 					<div className="greyLabel">Risulati ricerca</div>
 				</div>
-			) : isPopUp === true ? (
+			) : isPopUp ? (
 				<div>
 					<FountainAdd resetState={resetState} addButton={addButton} addFountainForm={addFountainForm} />
 				</div>

@@ -12,11 +12,7 @@ function FountainAdd(props) {
 			<form name="addFountainForm" className="addFountainForm" ref={props.addFountainForm}>
 				<div>
 					<label>Indirizzo</label>
-					<input type="text" name="indirizzo"></input>
-				</div>
-				<div>
-					<label>Stato</label>
-					<div className="dropdownMenu"></div>
+					<input type="text" name="indirizzo" />
 				</div>
 			</form>
 		</div>
