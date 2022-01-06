@@ -14,6 +14,8 @@ const Sidebar = (props) => {
 	 */
 	const [searchFocus, setSearchFocus] = useState(false);
 
+	const addButton = useRef(null);
+	const addFountainForm = useRef(null);
 	const searchBar = useRef(null);
 
 	const resetState = () => {
@@ -21,12 +23,15 @@ const Sidebar = (props) => {
 		setSearchFocus(false);
 	};
 
+	const addFountain = () => {
+		const formData = new FormData(addFountainForm.current);
+		console.log(formData.get("indirizzo"));
+	};
+
 	const showPopUpAddFountain = () => {
 		if (isPopUp) {
 			//The fountain has been added
 			setPopUp(false);
-			searchBar.current.blur();
-			//TODO add a popup to let the user know the fountain has been added
 		} else {
 			//The button to add a fountain has been pressed
 			setPopUp(true);
@@ -49,7 +54,7 @@ const Sidebar = (props) => {
 							className="searchBox"
 							ref={searchBar}
 							placeholder="Cerca..."
-							autoFocus="true"
+							autoFocus={true}
 							onFocus={() => {
 								setSearchFocus(true);
 							}}
@@ -63,7 +68,7 @@ const Sidebar = (props) => {
 				</div>
 			) : isPopUp === true ? (
 				<div>
-					<FountainAdd onClose={resetState} />
+					<FountainAdd resetState={resetState} addButton={addButton} addFountainForm={addFountainForm} />
 				</div>
 			) : (
 				<div>
@@ -87,7 +92,7 @@ const Sidebar = (props) => {
 			)}
 
 			{/* Add fountain button */}
-			<div className={isPopUp ? "circleIcon extendedIcon doneIcon bottomIcon" : "circleIcon addIcon bottomIcon"} onClick={showPopUpAddFountain}>
+			<div ref={addButton} className={isPopUp ? "circleIcon extendedIcon doneIcon bottomIcon" : "circleIcon addIcon bottomIcon"} onClick={isPopUp ? addFountain : showPopUpAddFountain}>
 				<p className="addFountainText" style={{ opacity: isPopUp ? "1" : "0" }}>
 					AGGIUNGI FONTANELLA
 				</p>

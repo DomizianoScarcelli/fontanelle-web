@@ -5,14 +5,14 @@ function FountainAdd(props) {
 	return (
 		<div>
 			<div className="horizontalContainer">
-				<img onClick={props.onClose} src={ArrowBack} alt="back" />
+				<img onClick={props.resetState} src={ArrowBack} alt="back" />
 				<div className="greyLabel">Aggiungi una fontanella</div>
 			</div>
 
-			<form className="addFountainForm">
+			<form name="addFountainForm" className="addFountainForm" ref={props.addFountainForm}>
 				<div>
 					<label>Indirizzo</label>
-					<input type="text"></input>
+					<input type="text" name="indirizzo"></input>
 				</div>
 				<div>
 					<label>Stato</label>
