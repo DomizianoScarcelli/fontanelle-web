@@ -25,3 +25,15 @@
 	background-repeat: no-repeat;
 	transition: width 500ms;
 }
+
+input {
+	text-indent: 5px;
+	align-items: center;
+	justify-content: center;
+	width: 13vw;
+	min-width: 280px;
+	height: 40px;
+	border-radius: 8px;
+	background-color: #f6f6f6;
+	border: solid 1px #dedede;
+}

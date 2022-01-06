@@ -13,7 +13,7 @@ const containerStyle = {
 const MapContainer = (props) => {
 	const { isLoaded } = useJsApiLoader({
 		id: "google-map-script",
-		googleMapsApiKey: "AIzaSyBbTz28oqCBEbXq9Y5oviGyjaL1FXTYs7s",
+		googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
 	});
 
 	const [map, setMap] = useState(null);

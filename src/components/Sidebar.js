@@ -2,6 +2,7 @@ import "../css/Sidebar.css";
 import React from "react";
 import FountainsContainer from "./FountainsContainer";
 import { useState, useRef } from "react";
+import FountainAdd from "./FountainAdd";
 
 const Sidebar = (props) => {
 	/**
@@ -24,42 +25,64 @@ const Sidebar = (props) => {
 		} else {
 			//The button to add a fountain has been pressed
 			setPopUp(true);
-			searchBar.current.focus();
 		}
 	};
 
 	return (
 		<div className="sidebarContainer">
-			{/* Searchbar */}
-			<div className="searchBoxContainer">
-				<input
-					className="searchBox"
-					ref={searchBar}
-					placeholder="Cerca..."
-					onFocus={() => {
-						setSearchFocus(true);
-					}}
-					onBlur={() => {
-						setPopUp(false);
-						setSearchFocus(false);
-					}}
-				/>
-			</div>
 			{/* 
 				If users click on the search bar and the + button is pressed -> FountainAdd
 				If the user clicks on the searchbar and the + button is not pressed -> FountainSearch
 				Else -> FountainsNearby
 			*/}
+
 			{searchFocus === true ? (
 				<div>
+					{/* Searchbar */}
+					<div className="searchBoxContainer">
+						<input
+							className="searchBox"
+							ref={searchBar}
+							placeholder="Cerca..."
+							autoFocus="true"
+							onFocus={() => {
+								setSearchFocus(true);
+							}}
+							onBlur={() => {
+								setPopUp(false);
+								setSearchFocus(false);
+							}}
+						/>
+					</div>
 					<div className="nearbyFountainsLabel">Risulati ricerca</div>
+				</div>
+			) : isPopUp === true ? (
+				<div>
+					<div className="nearbyFountainsLabel">Aggiungi una fontanella</div>
+					<FountainAdd />
 				</div>
 			) : (
 				<div>
+					{/* Searchbar */}
+					<div className="searchBoxContainer">
+						<input
+							className="searchBox"
+							ref={searchBar}
+							placeholder="Cerca..."
+							onFocus={() => {
+								setSearchFocus(true);
+							}}
+							onBlur={() => {
+								setPopUp(false);
+								setSearchFocus(false);
+							}}
+						/>
+					</div>
 					<div className="nearbyFountainsLabel">Fontanelle vicino a te</div>
 					<FountainsContainer location={props.location} fountainList={props.fountainList} />
 				</div>
 			)}
+
 			{/* Add fountain button */}
 			<div className={isPopUp ? "circleIcon extendedIcon doneIcon bottomIcon" : "circleIcon addIcon bottomIcon"} onClick={showPopUpAddFountain}>
 				<p className="addFountainText" style={{ opacity: isPopUp ? "1" : "0" }}>
