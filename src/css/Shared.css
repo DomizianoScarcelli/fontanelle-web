@@ -37,3 +37,13 @@ input {
 	background-color: #f6f6f6;
 	border: solid 1px #dedede;
 }
+
+.greyLabel {
+	padding: 5px 0 0 10px;
+	font-weight: bold;
+	color: #707070;
+}
+
+.horizontalContainer {
+	display: flex;
+}

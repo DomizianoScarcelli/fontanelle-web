@@ -15,24 +15,6 @@
 	justify-content: center;
 }
 
-.searchBox {
-	text-indent: 5px;
-	align-items: center;
-	justify-content: center;
-	width: 13vw;
-	min-width: 280px;
-	height: 40px;
-	border-radius: 8px;
-	background-color: #f6f6f6;
-	border: solid 1px #dedede;
-}
-
-.nearbyFountainsLabel {
-	padding: 5px 0 0 10px;
-	font-weight: bold;
-	color: #707070;
-}
-
 .doneIcon {
 	background-image: url(../res/done_white_24dp.svg);
 }

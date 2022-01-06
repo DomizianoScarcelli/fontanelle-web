@@ -16,6 +16,11 @@ const Sidebar = (props) => {
 
 	const searchBar = useRef(null);
 
+	const resetState = () => {
+		setPopUp(false);
+		setSearchFocus(false);
+	};
+
 	const showPopUpAddFountain = () => {
 		if (isPopUp) {
 			//The fountain has been added
@@ -54,12 +59,11 @@ const Sidebar = (props) => {
 							}}
 						/>
 					</div>
-					<div className="nearbyFountainsLabel">Risulati ricerca</div>
+					<div className="greyLabel">Risulati ricerca</div>
 				</div>
 			) : isPopUp === true ? (
 				<div>
-					<div className="nearbyFountainsLabel">Aggiungi una fontanella</div>
-					<FountainAdd />
+					<FountainAdd onClose={resetState} />
 				</div>
 			) : (
 				<div>
@@ -78,7 +82,6 @@ const Sidebar = (props) => {
 							}}
 						/>
 					</div>
-					<div className="nearbyFountainsLabel">Fontanelle vicino a te</div>
 					<FountainsContainer location={props.location} fountainList={props.fountainList} />
 				</div>
 			)}
