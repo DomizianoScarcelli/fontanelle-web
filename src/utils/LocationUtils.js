@@ -1,6 +1,6 @@
 import Geocode from "react-geocode";
 
-export const setAddressFromCoordinates = async (location) => {
+export const getAddressFromCoordinates = async (location) => {
 	Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY);
 	const res = await Geocode.fromLatLng(location.lat.toString(), location.lng.toString());
 	const addressComponents = await res.results[0].address_components;

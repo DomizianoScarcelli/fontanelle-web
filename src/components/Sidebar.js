@@ -25,10 +25,28 @@ const Sidebar = (props) => {
 	};
 
 	const addFountain = async () => {
-		if (inputAddress.current.value != "") {
+		if (inputAddress.current.value !== "") {
 			console.log(inputAddress.current.value);
 			const { lat, lng } = await getCoordinatesFromAddress(inputAddress.current.value);
 			console.log(lat, lng);
+			resetState();
+			//add fountain marker
+			console.log(props.fountainList);
+			props.fountainList.push({ Latitude: lat, Longitude: lng, ID: Math.random() * 100, distance: 105 });
+			const putResponse = await fetch("https://fontanelle-api.test.sapienzaapps.it/fountains/", {
+				method: "PUT",
+				headers: {
+					"Content-type": "application/json",
+					// "Access-Control-Allow-Origin": "http://localhost:3000",
+					// "Access-Control-Request-Method": "POST",
+					// "Access-Control-Request-Headers": "Content-Type, Authorization",
+				},
+				body: JSON.stringify({ state: "usable", lat: lat, lng: lng }),
+			});
+
+			// Awaiting response.json()
+			const resData = await putResponse.json();
+			console.log(resData);
 		}
 	};
 
