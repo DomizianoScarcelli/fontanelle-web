@@ -1,8 +1,8 @@
 import "../css/FountainAdd.css";
-import ArrowBack from "../res/arrow_back_blue_24dp.svg";
-import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption, ComboboxOptionText } from "@reach/combobox";
 import "@reach/combobox/styles.css";
-import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete";
+import ArrowBack from "../res/arrow_back_blue_24dp.svg";
+import { Combobox, ComboboxInput, ComboboxPopover, ComboboxOption } from "@reach/combobox";
+import usePlacesAutocomplete from "use-places-autocomplete";
 
 function FountainAdd(props) {
 	const {
@@ -20,6 +20,24 @@ function FountainAdd(props) {
 
 	return (
 		<div>
+			{props.showAddFountainPopUp ? (
+				/*Show modal*/
+				<div className="modal">
+					<div className="modal-content">
+						<div
+							className="close"
+							onClick={() => {
+								props.setShowAddFountainPopUp(false);
+							}}
+						>
+							&times;
+						</div>
+						<p>
+							Sei sicuro di voler aggiungere una fontanella in: <b>{value}</b>
+						</p>
+					</div>
+				</div>
+			) : null}
 			<div className="horizontalContainer">
 				<img onClick={props.resetState} src={ArrowBack} alt="back" />
 				<div className="greyLabel">Aggiungi una fontanella</div>

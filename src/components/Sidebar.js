@@ -4,7 +4,6 @@ import FountainsContainer from "./FountainsContainer";
 import { useState, useRef } from "react";
 import FountainAdd from "./FountainAdd";
 import { getCoordinatesFromAddress } from "../utils/LocationUtils.js";
-import axios from "axios";
 
 const Sidebar = (props) => {
 	/**
@@ -15,6 +14,10 @@ const Sidebar = (props) => {
 	 * True if the searchbar has focus
 	 */
 	const [searchFocus, setSearchFocus] = useState(false);
+	/**
+	 * Shows up the add fountain confirm
+	 */
+	const [showAddFountainPopUp, setShowAddFountainPopUp] = useState(false);
 
 	const addButton = useRef(null);
 	const inputAddress = useRef(null);
@@ -23,6 +26,11 @@ const Sidebar = (props) => {
 	const resetState = () => {
 		setPopUp(false);
 		setSearchFocus(false);
+		setShowAddFountainPopUp(false);
+	};
+
+	const showConfirmPopUp = () => {
+		setShowAddFountainPopUp(true);
 	};
 
 	const addFountain = async () => {
@@ -36,11 +44,6 @@ const Sidebar = (props) => {
 				method: "PUT",
 				headers: {
 					"Content-type": "application/x-www-form-urlencoded",
-					accept: "*/*",
-					"x-app-build": 1,
-					"x-app-lang": "it",
-					"x-app-platform": "ios",
-					"x-app-version": "1.0.0",
 				},
 				body: `state=usable&latitude=${lat}&longitude=${lng}`,
 			});
@@ -81,7 +84,13 @@ const Sidebar = (props) => {
 				</div>
 			) : isPopUp ? (
 				<div>
-					<FountainAdd resetState={resetState} addButton={addButton} inputAddress={inputAddress} />
+					<FountainAdd
+						resetState={resetState}
+						addButton={addButton}
+						inputAddress={inputAddress}
+						showAddFountainPopUp={showAddFountainPopUp}
+						setShowAddFountainPopUp={setShowAddFountainPopUp}
+					/>
 				</div>
 			) : (
 				<div>
@@ -105,7 +114,7 @@ const Sidebar = (props) => {
 			)}
 
 			{/* Add fountain button */}
-			<div ref={addButton} className={isPopUp ? "circleIcon extendedIcon doneIcon bottomIcon" : "circleIcon addIcon bottomIcon"} onClick={isPopUp ? addFountain : showPopUpAddFountain}>
+			<div ref={addButton} className={isPopUp ? "circleIcon extendedIcon doneIcon bottomIcon" : "circleIcon addIcon bottomIcon"} onClick={isPopUp ? showConfirmPopUp : showPopUpAddFountain}>
 				<p className="addFountainText" style={{ opacity: isPopUp ? "1" : "0" }}>
 					AGGIUNGI FONTANELLA
 				</p>
