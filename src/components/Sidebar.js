@@ -15,7 +15,7 @@ const Sidebar = (props) => {
 	const [searchFocus, setSearchFocus] = useState(false);
 
 	const addButton = useRef(null);
-	const addFountainForm = useRef(null);
+	const inputAddress = useRef(null);
 	const searchBar = useRef(null);
 
 	const resetState = () => {
@@ -24,18 +24,13 @@ const Sidebar = (props) => {
 	};
 
 	const addFountain = () => {
-		const formData = new FormData(addFountainForm.current);
-		console.log(formData.get("indirizzo"));
+		if (inputAddress.current.value != "") {
+			console.log(inputAddress.current.value);
+		}
 	};
 
 	const showPopUpAddFountain = () => {
-		if (isPopUp) {
-			//The fountain has been added
-			setPopUp(false);
-		} else {
-			//The button to add a fountain has been pressed
-			setPopUp(true);
-		}
+		setPopUp(true);
 	};
 
 	return (
@@ -68,7 +63,7 @@ const Sidebar = (props) => {
 				</div>
 			) : isPopUp ? (
 				<div>
-					<FountainAdd resetState={resetState} addButton={addButton} addFountainForm={addFountainForm} />
+					<FountainAdd resetState={resetState} addButton={addButton} inputAddress={inputAddress} />
 				</div>
 			) : (
 				<div>

@@ -28,6 +28,12 @@ function App() {
 	};
 
 	useEffect(() => {
+		//TODO sta cosa è provvisoria, vedi come risolverla
+		const script = document.createElement("script");
+		script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`;
+		script.async = true;
+
+		document.body.appendChild(script);
 		setLoading(true);
 		navigator.geolocation.getCurrentPosition(async (pos) => {
 			const { latitude, longitude } = pos.coords;
