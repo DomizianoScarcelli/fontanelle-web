@@ -90,6 +90,7 @@ const Sidebar = (props) => {
 						inputAddress={inputAddress}
 						showAddFountainPopUp={showAddFountainPopUp}
 						setShowAddFountainPopUp={setShowAddFountainPopUp}
+						addFountain={addFountain}
 					/>
 				</div>
 			) : (

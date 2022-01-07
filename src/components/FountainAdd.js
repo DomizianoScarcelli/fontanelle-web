@@ -24,17 +24,28 @@ function FountainAdd(props) {
 				/*Show modal*/
 				<div className="modal">
 					<div className="modal-content">
-						<div
-							className="close"
-							onClick={() => {
-								props.setShowAddFountainPopUp(false);
-							}}
-						>
-							&times;
-						</div>
 						<p>
-							Sei sicuro di voler aggiungere una fontanella in: <b>{value}</b>
+							Sei sicuro di voler aggiungere una fontanella in: <br />
+							<b>{value}</b>?
 						</p>
+						<div className="horizontalContainer buttonsContainer">
+							<button
+								className="buttonConfirm"
+								onClick={() => {
+									props.addFountain();
+								}}
+							>
+								Conferma
+							</button>
+							<button
+								className="buttonCancel"
+								onClick={() => {
+									props.setShowAddFountainPopUp(false);
+								}}
+							>
+								Annulla
+							</button>
+						</div>
 					</div>
 				</div>
 			) : null}
