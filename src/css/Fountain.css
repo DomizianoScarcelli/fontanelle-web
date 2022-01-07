@@ -7,10 +7,6 @@
 	flex-grow: 1;
 }
 
-.circleIcon:hover {
-	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.425);
-}
-
 .flagIcon {
 	background-image: url(../res/outlined_flag_white_24dp.svg);
 }

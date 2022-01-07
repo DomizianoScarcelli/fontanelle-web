@@ -26,6 +26,10 @@
 	transition: width 500ms;
 }
 
+.circleIcon:hover {
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.425);
+}
+
 input {
 	text-indent: 5px;
 	align-items: center;
