@@ -4,6 +4,7 @@ import FountainsContainer from "./FountainsContainer";
 import { useState, useRef } from "react";
 import FountainAdd from "./FountainAdd";
 import { getCoordinatesFromAddress } from "../utils/LocationUtils.js";
+import axios from "axios";
 
 const Sidebar = (props) => {
 	/**
@@ -30,23 +31,19 @@ const Sidebar = (props) => {
 			const { lat, lng } = await getCoordinatesFromAddress(inputAddress.current.value);
 			console.log(lat, lng);
 			resetState();
-			//add fountain marker
-			console.log(props.fountainList);
-			props.fountainList.push({ Latitude: lat, Longitude: lng, ID: Math.random() * 100, distance: 105 });
-			const putResponse = await fetch("https://fontanelle-api.test.sapienzaapps.it/fountains/", {
+			//add fountain
+			const res = await fetch("https://fontanelle-api.test.sapienzaapps.it/fountains/", {
 				method: "PUT",
 				headers: {
-					"Content-type": "application/json",
-					// "Access-Control-Allow-Origin": "http://localhost:3000",
-					// "Access-Control-Request-Method": "POST",
-					// "Access-Control-Request-Headers": "Content-Type, Authorization",
+					"Content-type": "application/x-www-form-urlencoded",
+					accept: "*/*",
+					"x-app-build": 1,
+					"x-app-lang": "it",
+					"x-app-platform": "ios",
+					"x-app-version": "1.0.0",
 				},
-				body: JSON.stringify({ state: "usable", lat: lat, lng: lng }),
+				body: `state=usable&latitude=${lat}&longitude=${lng}`,
 			});
-
-			// Awaiting response.json()
-			const resData = await putResponse.json();
-			console.log(resData);
 		}
 	};
 
