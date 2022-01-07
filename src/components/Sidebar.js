@@ -3,6 +3,7 @@ import React from "react";
 import FountainsContainer from "./FountainsContainer";
 import { useState, useRef } from "react";
 import FountainAdd from "./FountainAdd";
+import { getCoordinatesFromAddress } from "../utils/LocationUtils.js";
 
 const Sidebar = (props) => {
 	/**
@@ -23,9 +24,11 @@ const Sidebar = (props) => {
 		setSearchFocus(false);
 	};
 
-	const addFountain = () => {
+	const addFountain = async () => {
 		if (inputAddress.current.value != "") {
 			console.log(inputAddress.current.value);
+			const { lat, lng } = await getCoordinatesFromAddress(inputAddress.current.value);
+			console.log(lat, lng);
 		}
 	};
 

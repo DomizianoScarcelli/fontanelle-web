@@ -8,3 +8,10 @@ export const setAddressFromCoordinates = async (location) => {
 	const addressNumber = addressComponents[0].short_name;
 	return addressName + ", " + addressNumber;
 };
+
+export const getCoordinatesFromAddress = async (address) => {
+	Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY);
+	const res = await Geocode.fromAddress(address);
+	const { lat, lng } = await res.results[0].geometry.location;
+	return { lat, lng }; //TODO error handling
+};
