@@ -2,9 +2,11 @@ import "../css/Fountain.css";
 import { FountainItem } from "./FountainItem";
 import { useState } from "react";
 import FountainDetails from "./FountainDetails";
+import ModalWindow from "./ModalWindow";
 
 const FountainContainer = (props) => {
 	const [details, setDetails] = useState(null);
+	const [showCancelFountainPopUp, setShowCancelFountainPopUp] = useState(false);
 
 	let detailsHtml = "";
 	if (details != null)
@@ -14,11 +16,27 @@ const FountainContainer = (props) => {
 				onClose={() => {
 					setDetails(null);
 				}}
+				onClick={() => {
+					setShowCancelFountainPopUp(true);
+				}}
 			></FountainDetails>
 		);
 
 	return (
 		<div>
+			{showCancelFountainPopUp ? (
+				/*Show modal*/
+				<ModalWindow
+					message={"Sei sicuro di voler rimuovere la fontanella in:"}
+					value={"NOME FONTANELLA"}
+					onClick={() => {
+						console.log("Fontanella eliminata");
+					}}
+					onCancel={() => {
+						setShowCancelFountainPopUp(false);
+					}}
+				/>
+			) : null}
 			<div className="greyLabel">Fontanelle vicino a te</div>
 			<div className="outerFountainContainer">
 				<div className="fountainContainer">

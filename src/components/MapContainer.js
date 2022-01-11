@@ -54,6 +54,7 @@ const MapContainer = (props) => {
 				);
 			})}
 			<Marker position={props.location}></Marker>
+			<Circle center={center} radius={2 * 1000} />
 		</GoogleMap>
 	);
 };

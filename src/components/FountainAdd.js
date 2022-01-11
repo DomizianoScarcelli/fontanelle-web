@@ -23,7 +23,16 @@ function FountainAdd(props) {
 		<div>
 			{props.showAddFountainPopUp ? (
 				/*Show modal*/
-				<ModalWindow value={value} addFountain={props.addFountain} setShowAddFountainPopUp={props.setShowAddFountainPopUp} />
+				<ModalWindow
+					message={"Sei sicuro di voler aggiungere la fontanella in:"}
+					value={value}
+					onClick={() => {
+						props.addFountain();
+					}}
+					onCancel={() => {
+						props.setShowAddFountainPopUp(false);
+					}}
+				/>
 			) : null}
 			<div className="horizontalContainer">
 				<img onClick={props.resetState} src={ArrowBack} alt="back" />

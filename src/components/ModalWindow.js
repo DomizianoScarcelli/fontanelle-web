@@ -6,24 +6,14 @@ function ModalWindow(props) {
 		<div className="modal">
 			<div className="modal-content">
 				<p>
-					Sei sicuro di voler aggiungere una fontanella in: <br />
+					{props.message} <br />
 					<b>{props.value}</b>?
 				</p>
 				<div className="horizontalContainer buttonsContainer">
-					<button
-						className="buttonConfirm"
-						onClick={() => {
-							props.addFountain();
-						}}
-					>
+					<button className="buttonConfirm" onClick={props.onClick}>
 						Conferma
 					</button>
-					<button
-						className="buttonCancel"
-						onClick={() => {
-							props.setShowAddFountainPopUp(false);
-						}}
-					>
+					<button className="buttonCancel" onClick={props.onCancel}>
 						Annulla
 					</button>
 				</div>
