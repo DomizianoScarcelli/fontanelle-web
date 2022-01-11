@@ -24,7 +24,7 @@ const FountainDetails = (props) => {
 			<div className="horizontalFlex">
 				<div className="circleIcon directionsIcon"></div>
 				<div className="circleIcon saveIcon"></div>
-				<div className="circleIcon secondary flagIcon"></div>
+				<div className="circleIcon secondary deleteIcon" onClick={props.onClick}></div>
 			</div>
 		</div>
 	);

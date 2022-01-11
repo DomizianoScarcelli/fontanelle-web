@@ -18,6 +18,10 @@
 	background-image: url(../res/favorite_border_white_24dp.svg);
 }
 
+.deleteIcon {
+	background-image: url(../res/delete_white_24dp.svg);
+}
+
 .secondary {
 	background-color: #ff7070;
 }

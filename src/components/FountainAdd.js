@@ -3,6 +3,7 @@ import "@reach/combobox/styles.css";
 import ArrowBack from "../res/arrow_back_blue_24dp.svg";
 import { Combobox, ComboboxInput, ComboboxPopover, ComboboxOption } from "@reach/combobox";
 import usePlacesAutocomplete from "use-places-autocomplete";
+import ModalWindow from "./ModalWindow";
 
 function FountainAdd(props) {
 	const {
@@ -22,32 +23,17 @@ function FountainAdd(props) {
 		<div>
 			{props.showAddFountainPopUp ? (
 				/*Show modal*/
-				<div className="modal">
-					<div className="modal-content">
-						<p>
-							Sei sicuro di voler aggiungere una fontanella in: <br />
-							<b>{value}</b>?
-						</p>
-						<div className="horizontalContainer buttonsContainer">
-							<button
-								className="buttonConfirm"
-								onClick={() => {
-									props.addFountain();
-								}}
-							>
-								Conferma
-							</button>
-							<button
-								className="buttonCancel"
-								onClick={() => {
-									props.setShowAddFountainPopUp(false);
-								}}
-							>
-								Annulla
-							</button>
-						</div>
-					</div>
-				</div>
+				<ModalWindow
+					message={"Sei sicuro di voler aggiungere la fontanella in:"}
+					value={value}
+					onClick={async () => {
+						await props.addFountain();
+						window.location.reload();
+					}}
+					onCancel={() => {
+						props.setShowAddFountainPopUp(false);
+					}}
+				/>
 			) : null}
 			<div className="horizontalContainer">
 				<img onClick={props.resetState} src={ArrowBack} alt="back" />
