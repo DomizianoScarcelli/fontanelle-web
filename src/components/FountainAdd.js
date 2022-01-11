@@ -26,8 +26,9 @@ function FountainAdd(props) {
 				<ModalWindow
 					message={"Sei sicuro di voler aggiungere la fontanella in:"}
 					value={value}
-					onClick={() => {
-						props.addFountain();
+					onClick={async () => {
+						await props.addFountain();
+						window.location.reload();
 					}}
 					onCancel={() => {
 						props.setShowAddFountainPopUp(false);

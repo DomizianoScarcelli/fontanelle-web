@@ -8,19 +8,9 @@ const FountainContainer = (props) => {
 	const [details, setDetails] = useState(null);
 	const [showCancelFountainPopUp, setShowCancelFountainPopUp] = useState(false);
 
-	let detailsHtml = "";
-	if (details != null)
-		detailsHtml = (
-			<FountainDetails
-				fountain={details}
-				onClose={() => {
-					setDetails(null);
-				}}
-				onClick={() => {
-					setShowCancelFountainPopUp(true);
-				}}
-			></FountainDetails>
-		);
+	const removeFountain = async (id) => {
+		const res = await fetch(`https://fontanelle-api.test.sapienzaapps.it/fountains/${id}/`, { method: "DELETE" });
+	};
 
 	return (
 		<div>
@@ -30,7 +20,9 @@ const FountainContainer = (props) => {
 					message={"Sei sicuro di voler rimuovere la fontanella in:"}
 					value={"NOME FONTANELLA"}
 					onClick={() => {
-						console.log("Fontanella eliminata");
+						removeFountain(details.ID);
+						setShowCancelFountainPopUp(false);
+						window.location.reload();
 					}}
 					onCancel={() => {
 						setShowCancelFountainPopUp(false);
@@ -44,7 +36,15 @@ const FountainContainer = (props) => {
 						return (
 							<div>
 								{data === details ? (
-									detailsHtml
+									<FountainDetails
+										fountain={details}
+										onClose={() => {
+											setDetails(null);
+										}}
+										onClick={() => {
+											setShowCancelFountainPopUp(true);
+										}}
+									></FountainDetails>
 								) : (
 									<FountainItem
 										onClick={() => {
