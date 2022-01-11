@@ -41,10 +41,20 @@ function App() {
 
 			const response = await fetch(`https://fontanelle-api.test.sapienzaapps.it/fountains/?latitude=${latitude}&longitude=${longitude}&radius=100`);
 			const data = await response.json();
+			let orderedFountainList = [];
+
 			data.forEach((fountain) => {
 				const fountainDistance = Math.round(getDistanceBetweenCoordinates(fountain.Latitude, fountain.Longitude, latitude, longitude) * 100) / 100;
-				setFountainList((fountainList) => [...fountainList, { Latitude: fountain.Latitude, Longitude: fountain.Longitude, ID: fountain.ID, distance: fountainDistance }]);
+				orderedFountainList.push({ Latitude: fountain.Latitude, Longitude: fountain.Longitude, ID: fountain.ID, distance: fountainDistance });
+				// setFountainList((fountainList) => [...fountainList, { Latitude: fountain.Latitude, Longitude: fountain.Longitude, ID: fountain.ID, distance: fountainDistance }]);
 			});
+
+			orderedFountainList.sort((fount1, fount2) => {
+				if (fount1.distance < fount2.distance) return -1;
+				if (fount1.distance > fount2.distance) return 1;
+				return 0;
+			});
+			setFountainList(orderedFountainList);
 
 			data.forEach((fountain) => {
 				setMarkers((markers) => [...markers, { position: { lat: fountain.Latitude, lng: fountain.Longitude }, id: fountain.ID }]);
